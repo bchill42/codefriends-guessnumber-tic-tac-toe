@@ -14,3 +14,16 @@ Update your game so that when a user wins, it prompts them to either quit or pla
 
 Notes
 You should use the prompt-sync node module to accept user input. You will need to use npm to install sync-prompt and const prompt = require('prompt-sync')() to use it within your code.
+
+
+
+Description
+Create a tic-tac-toe game!
+
+Objectives
+After completing this assignment, you should…
+
+understand how to use loops
+understand how to use arrays
+Assignment
+Create a game of tic-tac-toe on the command line. Use the prompt-sync module to accept coordinates from user one for where they want to place their X and from user two for where they want to place their O.
