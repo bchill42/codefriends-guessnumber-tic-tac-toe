@@ -1,0 +1,11 @@
+{
+  "name": "number-guessing-game",
+  "version": "1.0.0",
+  "description": "This is a guessing game to find a randomly generated number between 0-100",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
