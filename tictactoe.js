@@ -9,10 +9,6 @@ function board(x,y){
     console.log('  -------------');
 }
 
-function compare(a,b,c){
-
-}
-
 let spots = [
     {   x:1,
         y:1,
@@ -63,9 +59,20 @@ while (!done){
     console.log('Welcome to Tic-Tac-Toe!');
     board();
     while (!won){
+        let x,y=0;
+        let valid = false;
         console.log(`It's ${turn}'s turn`);
-        let x = prompt(`Enter an X coordinate: `);
-        let y = prompt(`Enter an Y coordinate: `);
+        while (!valid){
+            x = prompt(`Enter an X coordinate: `);
+            y = prompt(`Enter an Y coordinate: `);
+            console.log(x,y);
+            if (((x==1) || (x==2) || (x==3)) && ((y==1) || (y==2) || (y==3))){
+                valid = true;
+            }
+            else{
+                console.log('Invalid Responce. Please enter values 1, 2, or 3.')
+            }
+        }
         for (let i=0; i<spots.length; i++){
             if ((spots[i].x == x) && (spots[i].y == y)){
                 if (spots[i].value === ' '){
