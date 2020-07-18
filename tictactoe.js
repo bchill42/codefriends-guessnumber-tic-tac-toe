@@ -1,11 +1,11 @@
 function board(x,y){
     console.log('    1   2   3 ');
     console.log('  -------------');
-    console.log(`1 |${spots[0].value}|${spots[1].value}|${spots[2].value}|`);
+    console.log(`1 | ${spots[0].value} | ${spots[1].value} | ${spots[2].value} |`);
     console.log('  -------------');
-    console.log(`2 |${spots[3].value}|${spots[4].value}|${spots[5].value}|`);
+    console.log(`2 | ${spots[3].value} | ${spots[4].value} | ${spots[5].value} |`);
     console.log('  -------------');
-    console.log(`3 |${spots[6].value}|${spots[7].value}|${spots[8].value}|`);
+    console.log(`3 | ${spots[6].value} | ${spots[7].value} | ${spots[8].value} |`);
     console.log('  -------------');
 }
 
@@ -16,39 +16,39 @@ function compare(a,b,c){
 let spots = [
     {   x:1,
         y:1,
-        value: '   '
+        value: ' '
     },
     {   x:2,
         y:1,
-        value: '   '
+        value: ' '
     },
     {   x:3,
         y:1,
-        value: '   '
+        value: ' '
     },
     {   x:1,
         y:2,
-        value: '   '
+        value: ' '
     },
     {   x:2,
         y:2,
-        value: '   '
+        value: ' '
     },
     {   x:3,
         y:2,
-        value: '   '
+        value: ' '
     },
     {   x:1,
         y:3,
-        value: '   '
+        value: ' '
     },
     {   x:2,
         y:3,
-        value: '   '
+        value: ' '
     },
     {   x:3,
         y:3,
-        value: '   '
+        value: ' '
     }
 ];
 
@@ -59,6 +59,7 @@ console.clear();
 while (!done){
     let turn = "X";
     let won = false;
+    let nturns = 1;
     console.log('Welcome to Tic-Tac-Toe!');
     board();
     while (!won){
@@ -67,8 +68,8 @@ while (!done){
         let y = prompt(`Enter an Y coordinate: `);
         for (let i=0; i<spots.length; i++){
             if ((spots[i].x == x) && (spots[i].y == y)){
-                if (spots[i].value === '   '){
-                    spots[i].value = ` ${turn} `;
+                if (spots[i].value === ' '){
+                    spots[i].value = `${turn}`;
                     console.clear();
                     board();
                     if (turn === "X"){
@@ -81,27 +82,26 @@ while (!done){
                 else {
                     console.log('Spot already taken. Please choose again.');
                 }
-            }   
+            }
         }
-        if ((((spots[0].value === ' X ') && (spots[1].value === ' X ') && (spots[2].value === ' X ')) ||
-            ((spots[3].value === ' X ') && (spots[4].value === ' X ') && (spots[5].value === ' X ')) ||
-            ((spots[6].value === ' X ') && (spots[7].value === ' X ') && (spots[8].value === ' X ')) ||
-            ((spots[0].value === ' X ') && (spots[3].value === ' X ') && (spots[6].value === ' X ')) ||
-            ((spots[1].value === ' X ') && (spots[4].value === ' X ') && (spots[7].value === ' X ')) ||
-            ((spots[2].value === ' X ') && (spots[5].value === ' X ') && (spots[8].value === ' X ')) ||
-            ((spots[0].value === ' X ') && (spots[4].value === ' X ') && (spots[8].value === ' X ')) ||
-            ((spots[2].value === ' X ') && (spots[4].value === ' X ') && (spots[6].value === ' X ')) ||
-            ((spots[0].value === ' O ') && (spots[1].value === ' O ') && (spots[2].value === ' O ')) ||
-            ((spots[3].value === ' O ') && (spots[4].value === ' O ') && (spots[5].value === ' O ')) ||
-            ((spots[6].value === ' O ') && (spots[7].value === ' O ') && (spots[8].value === ' O ')) ||
-            ((spots[0].value === ' O ') && (spots[3].value === ' O ') && (spots[6].value === ' O ')) ||
-            ((spots[1].value === ' O ') && (spots[4].value === ' O ') && (spots[7].value === ' O ')) ||
-            ((spots[2].value === ' O ') && (spots[5].value === ' O ') && (spots[8].value === ' O ')) ||
-            ((spots[0].value === ' O ') && (spots[4].value === ' O ') && (spots[8].value === ' O ')) ||
-            ((spots[2].value === ' O ') && (spots[4].value === ' O ') && (spots[6].value === ' O '))) === true)
+        if ((((spots[0].value === 'X') && (spots[1].value === 'X') && (spots[2].value === 'X')) ||
+            ((spots[3].value === 'X') && (spots[4].value === 'X') && (spots[5].value === 'X')) ||
+            ((spots[6].value === 'X') && (spots[7].value === 'X') && (spots[8].value === 'X')) ||
+            ((spots[0].value === 'X') && (spots[3].value === 'X') && (spots[6].value === 'X')) ||
+            ((spots[1].value === 'X') && (spots[4].value === 'X') && (spots[7].value === 'X')) ||
+            ((spots[2].value === 'X') && (spots[5].value === 'X') && (spots[8].value === 'X')) ||
+            ((spots[0].value === 'X') && (spots[4].value === 'X') && (spots[8].value === 'X')) ||
+            ((spots[2].value === 'X') && (spots[4].value === 'X') && (spots[6].value === 'X')) ||
+            ((spots[0].value === 'O') && (spots[1].value === 'O') && (spots[2].value === 'O')) ||
+            ((spots[3].value === 'O') && (spots[4].value === 'O') && (spots[5].value === 'O')) ||
+            ((spots[6].value === 'O') && (spots[7].value === 'O') && (spots[8].value === 'O')) ||
+            ((spots[0].value === 'O') && (spots[3].value === 'O') && (spots[6].value === 'O')) ||
+            ((spots[1].value === 'O') && (spots[4].value === 'O') && (spots[7].value === 'O')) ||
+            ((spots[2].value === 'O') && (spots[5].value === 'O') && (spots[8].value === 'O')) ||
+            ((spots[0].value === 'O') && (spots[4].value === 'O') && (spots[8].value === 'O')) ||
+            ((spots[2].value === 'O') && (spots[4].value === 'O') && (spots[6].value === 'O'))) === true)
         {   
-            console.log(turn);
-            if (turn = "O"){
+            if (turn === "O"){
                 console.log(`Congrats, X won!`);
                 won = true;
             }
@@ -110,11 +110,16 @@ while (!done){
                 won = true;
             }     
         }
+        else if (nturns === 9){
+            console.log(`It's a Draw!`);
+            won = true;
+        }
+        nturns++;
     }
     let again = (prompt(`Would you like to play again? (Y/N)`)).toLowerCase();
     if (again === "y"){
         for (let i=0; i<9; i++){
-            spots[i].value = '   ';
+            spots[i].value = ' ';
         }
         console.clear();
     }
