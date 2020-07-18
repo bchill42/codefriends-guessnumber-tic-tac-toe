@@ -9,10 +9,9 @@ function board(x,y){
     console.log('  -------------');
 }
 
-let prompt = require('prompt-sync')();
-let done = false;
-console.clear();
-console.log('Welcome to Tic-Tac-Toe!');
+function compare(a,b,c){
+
+}
 
 let spots = [
     {   x:1,
@@ -51,12 +50,16 @@ let spots = [
         y:3,
         value: '   '
     }
-]
-// let winningOptions = [[spot[0].value,spot[1].value,spot[2].value],[spot[3].value,spot[4].value,spot[5].value]]
-// [3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6];
-let turn = "X";
-let won = false;
+];
+
+let prompt = require('prompt-sync')();
+let done = false;
+console.clear();
+
 while (!done){
+    let turn = "X";
+    let won = false;
+    console.log('Welcome to Tic-Tac-Toe!');
     board();
     while (!won){
         console.log(`It's ${turn}'s turn`);
@@ -74,22 +77,43 @@ while (!done){
                     else {
                         turn = "X";
                     }
-                    
                 } 
                 else {
                     console.log('Spot already taken. Please choose again.');
                 }
             }   
         }
-        if ((spots[0].value === spots[1].value) && (spots[1].value === spots[2].value)){
-            console.log(`Congrats, ${spots[0].value} won!`);
-            won = true;
+        if ((((spots[0].value === ' X ') && (spots[1].value === ' X ') && (spots[2].value === ' X ')) ||
+            ((spots[3].value === ' X ') && (spots[4].value === ' X ') && (spots[5].value === ' X ')) ||
+            ((spots[6].value === ' X ') && (spots[7].value === ' X ') && (spots[8].value === ' X ')) ||
+            ((spots[0].value === ' X ') && (spots[3].value === ' X ') && (spots[6].value === ' X ')) ||
+            ((spots[1].value === ' X ') && (spots[4].value === ' X ') && (spots[7].value === ' X ')) ||
+            ((spots[2].value === ' X ') && (spots[5].value === ' X ') && (spots[8].value === ' X ')) ||
+            ((spots[0].value === ' X ') && (spots[4].value === ' X ') && (spots[8].value === ' X ')) ||
+            ((spots[2].value === ' X ') && (spots[4].value === ' X ') && (spots[6].value === ' X ')) ||
+            ((spots[0].value === ' O ') && (spots[1].value === ' O ') && (spots[2].value === ' O ')) ||
+            ((spots[3].value === ' O ') && (spots[4].value === ' O ') && (spots[5].value === ' O ')) ||
+            ((spots[6].value === ' O ') && (spots[7].value === ' O ') && (spots[8].value === ' O ')) ||
+            ((spots[0].value === ' O ') && (spots[3].value === ' O ') && (spots[6].value === ' O ')) ||
+            ((spots[1].value === ' O ') && (spots[4].value === ' O ') && (spots[7].value === ' O ')) ||
+            ((spots[2].value === ' O ') && (spots[5].value === ' O ') && (spots[8].value === ' O ')) ||
+            ((spots[0].value === ' O ') && (spots[4].value === ' O ') && (spots[8].value === ' O ')) ||
+            ((spots[2].value === ' O ') && (spots[4].value === ' O ') && (spots[6].value === ' O '))) === true)
+        {   
+            console.log(turn);
+            if (turn = "O"){
+                console.log(`Congrats, X won!`);
+                won = true;
+            }
+            else {
+                console.log(`Congrats, O won!`);
+                won = true;
+            }     
         }
-
     }
     let again = (prompt(`Would you like to play again? (Y/N)`)).toLowerCase();
     if (again === "y"){
-        for (let i=0; i<8; i++){
+        for (let i=0; i<9; i++){
             spots[i].value = '   ';
         }
         console.clear();
