@@ -9,44 +9,12 @@ function board(x,y){
     console.log('  -------------');
 }
 
-let spots = [
-    {   x:1,
-        y:1,
-        value: ' '
-    },
-    {   x:2,
-        y:1,
-        value: ' '
-    },
-    {   x:3,
-        y:1,
-        value: ' '
-    },
-    {   x:1,
-        y:2,
-        value: ' '
-    },
-    {   x:2,
-        y:2,
-        value: ' '
-    },
-    {   x:3,
-        y:2,
-        value: ' '
-    },
-    {   x:1,
-        y:3,
-        value: ' '
-    },
-    {   x:2,
-        y:3,
-        value: ' '
-    },
-    {   x:3,
-        y:3,
-        value: ' '
+let spots = []
+for (let i=1; i<4; i++){
+    for (let j=1; j<4; j++){
+        spots.push({x:i, y:j, value:' '})
     }
-];
+}
 
 let prompt = require('prompt-sync')();
 let done = false;
