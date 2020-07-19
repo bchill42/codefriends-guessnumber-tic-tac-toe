@@ -27,6 +27,7 @@ console.clear();
 while (!done){
     let turn = 0;
     let won = false;
+    let games = 0;
     let nturns = 1;
     let players = []
     console.log('Welcome to Tic-Tac-Toe!');
@@ -46,21 +47,16 @@ while (!done){
         players.push({player:"player1", symbol:"X"});
         players.push({player:"player2", symbol:"O"});
     }
-    console.log(players);
-    // console.clear();
     board();
     while (!won){
         let x,y=0;
         let valid = false;
         let available = false;
-        console.log(turn);
         console.log(`It's ${players[turn].player}'s turn`);
-        console.log(turn);
         if (players[turn].player !== "computer"){
             while (!valid){
                 x = prompt(`Enter an X coordinate: `);
                 y = prompt(`Enter an Y coordinate: `);
-                console.log(x,y);
                 if (((x==1) || (x==2) || (x==3)) && ((y==1) || (y==2) || (y==3))){
                     valid = true;
                 }
@@ -98,7 +94,6 @@ while (!done){
                 } 
             }
         }
-        // issue with choosing already taken spot
         
         console.clear();
         board();
@@ -141,17 +136,24 @@ while (!done){
         nturns++;
     }
     let again = (prompt(`Would you like to play again? (Y/N)`)).toLowerCase();
-    if (again === "y"){
-        for (let i=0; i<9; i++){
-            spots[i].value = ' ';
+    valid = false;
+    while (!valid){
+        if (again === "y"){
+            for (let i=0; i<9; i++){
+                spots[i].value = ' ';
+            }
+            games++;
+            valid = true;
+            console.clear();
         }
-        console.clear();
-    }
-    else if (again === "n"){
-        console.log("Thanks for playing!")
-        done = true;
-    }
-    else {
-        console.log(`Please enter "Y" for yes or "N" for no.`)
+        else if (again === "n"){
+            console.log("Thanks for playing!")
+            done = true;
+            valid = true;
+        } 
+        else {
+            console.log('Invalid Responce. Please enter "Y" for yes or "N" for no')
+            again = (prompt(`Would you like to play again? (Y/N)`)).toLowerCase();
+        }
     }
 }
